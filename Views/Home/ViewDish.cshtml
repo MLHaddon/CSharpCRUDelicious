@@ -1,0 +1,14 @@
+@model Dish
+<div class="container-fluid">
+  <partial name="_HomeLink"/>
+  <h1 class="text-center">@Model.Name</h1>
+  <h3 class="text-center">@Model.Chef</h3>
+  <div class="container mt-1 mb-1" style="height: 2px; border: 1px solid black;"></div>
+  <p class="text-center">@Model.Description</p>
+  <div>Calories @Model.Calories</div>
+  <div>Tastiness @Model.Tastiness</div>
+  <div class="d-flex flex-row justify-content-around">
+    <a  href="Delete/@Model.DishID"><button class="text bg-danger">Delete</button></a>
+    <a  href="Edit/@Model.DishID"><button class="text bg-light">Edit</button></a>
+  </div>
+</div>

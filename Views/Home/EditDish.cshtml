@@ -1,0 +1,44 @@
+@model Dish
+<div class="container-fluid">
+    <h1>Edit @Model.Name</h1>
+    <partial name="_HomeLink"/>
+    <div id="Spacer" class="container mt-2"></div>
+    <div class="d-flex flex-row justify-content-around">
+        <form asp-action="SubmitDish" asp-controller="Home" method="post">
+            <input type="hidden" asp-for="DishID" value="@Model.DishID">
+            <div class="card-deck">
+                <div class="card">
+
+                        <label asp-for="Chef" class="mt-1"></label>
+                        <input type="text" asp-for="Chef" value="@Model.Chef">
+                        <span class="text-warning" asp-validation-for="Chef"></span>
+
+                        <label asp-for="Name" class="mt-1"></label>
+                        <input type="text" asp-for="Name" value="@Model.Name">
+                        <span class="text-warning" asp-validation-for="Name"></span>
+
+                        <label asp-for="Calories" class="mt-1"></label>
+                        <input type="number" asp-for="Calories" value="@Model.Calories">
+                        <span class="text-warning" asp-validation-for="Calories"></span>
+
+                </div>
+                <div class="card">
+                    <label asp-for="Tastiness" class="mt-1"></label>
+                    <input type="number" asp-for="Tastiness">
+                    <span class="text-warning" asp-validation-for="Tastiness"></span>
+                </div>
+                <div class="card">
+                    <label asp-for="Description" class="mt-1"></label>
+                    <textarea 
+                    type="text"
+                    asp-for="Description"  
+                    style="height: 75px; overflow: hidden; overflow-wrap: break-word; resize: none; margin-bottom: 2px;"
+                    id="textarea"
+                    value="@Model.Description"></textarea>
+                    <span class="text-warning" asp-validation-for="Description"></span>
+                    <button type="submit" class="card-footer mt-2">Edit Dish</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

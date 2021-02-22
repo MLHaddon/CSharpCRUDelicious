@@ -1,0 +1,19 @@
+@model List<Dish>
+<div class="container">
+  <h1>Welcome</h1>
+  <div class="container-fluid-reverse">
+    <div class="d-flex flex-row justify-content-between">
+      <p>Check out some recent dishes!</p>
+      <a asp-action="AddDish" asp-controller="Home">Add a Dish</a>
+    </div>
+    <div class="container mt-1 mb-1" style="height: 2px; border: 1px solid black;"></div>
+    <ul style="list-style: none;">
+      @{
+        for (int i = Model.Count - 1; i > 0; i--)
+        {
+          <li><a href="@Model[i].DishID">@Model[i].Name</a> by @Model[i].Chef</li>
+        }
+      }
+    </ul>
+  </div>
+</div>
